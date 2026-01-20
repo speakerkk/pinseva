@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pin Seva – Indian PIN Code Search</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="style.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <style>
+        /* Specific styles for the State Grid */
+        
+        .state-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .state-card {
+            background: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 400;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s, background 0.2s;
+            border: 1px solid #eee;
+        }
+        .state-card:hover {
+            transform: translateY(-3px);
+            background: var(--primary);
+            color: white;
+        }
+        .category-header {
+            margin-top: 30px;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+	.state-card::after {
+  	  content: "PIN Circle: " attr(data-circle) " (" attr(data-zone) ")";
+  	  position: absolute;
+  	  top: -15px;
+  	  left: 50%;
+  	  transform: translateX(-50%);
+  	  background: #000;
+  	  color: #fff;
+  	  font-size: 12px;
+  	  padding: 4px 8px;
+  	  border-radius: 4px;
+  	  white-space: nowrap;
+   	 opacity: 0;
+   	 pointer-events: none;
+   	 transition: opacity 0.2s ease;
+  	  z-index: 10;
+	}
+
+	.state-card:hover::after {
+ 	   opacity: 1;
+	}
+   </style>
+
+</head>
+
+<body>
+
+<header>
+  <h1>Pin Seva</h1>
+  <p>Search. Locate. Deliver.</p>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="stateslist.html" class="active">States List</a>
+        <a href="pobyregion.html">PO's by Region</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<div class="page-wrapper">
+
+  <!-- Left Ad -->
+  <aside class="ad-sidebar">
+    <div class="ad-box-300-600"></div>
+  </aside>
+
+  <main class="container">
+
+    <!-- Inline Ad -->
+    <div class="ad-inline">
+      <div class="ad-box-728-90"></div>
+    </div>
+
+<section class="info-section">
+
+        <h2>List of States in India</h2>
+<p>As per latest administrative structure, below is the official current list of 28 States in India.</p>
+<p><strong>Andaman & Nicobar Islands, Chandigarh, Dadra & Nagar Haveli, Daman & Diu, Jammu, Kashmir and Ladakh, Lakshadweep, Puducherry</strong> are Union Territories.</p>
+<p><strong>Delhi</strong> is a Union Territory with legislature.</p><br>
+
+<div class="state-grid">
+    <a class="state-card" data-circle="51" data-zone="South">Andhra Pradesh</a>
+    <a class="state-card" data-circle="79" data-zone="North East">Arunachal Pradesh</a>
+    <a class="state-card" data-circle="78" data-zone="North East">Assam</a>
+    <a class="state-card" data-circle="80" data-zone="East">Bihar</a>
+    <a class="state-card" data-circle="49" data-zone="Central">Chhattisgarh</a>
+    <a class="state-card" data-circle="40" data-zone="West">Goa</a>
+    <a class="state-card" data-circle="36" data-zone="West">Gujarat</a>
+    <a class="state-card" data-circle="12" data-zone="North">Haryana</a>
+    <a class="state-card" data-circle="17" data-zone="North">Himachal Pradesh</a>
+    <a class="state-card" data-circle="81" data-zone="East">Jharkhand</a>
+    <a class="state-card" data-circle="56" data-zone="South">Karnataka</a>
+    <a class="state-card" data-circle="68" data-zone="South">Kerala</a>
+    <a class="state-card" data-circle="45" data-zone="Central">Madhya Pradesh</a>
+    <a class="state-card" data-circle="40" data-zone="West">Maharashtra</a>
+    <a class="state-card" data-circle="79" data-zone="North East">Manipur</a>
+    <a class="state-card" data-circle="79" data-zone="North East">Meghalaya</a>
+    <a class="state-card" data-circle="79" data-zone="North East">Mizoram</a>
+    <a class="state-card" data-circle="79" data-zone="North East">Nagaland</a>
+    <a class="state-card" data-circle="75" data-zone="East">Odisha</a>
+    <a class="state-card" data-circle="14" data-zone="North">Punjab</a>
+    <a class="state-card" data-circle="30" data-zone="West">Rajasthan</a>
+    <a class="state-card" data-circle="73" data-zone="East">Sikkim</a>
+    <a class="state-card" data-circle="60" data-zone="South">Tamil Nadu</a>
+    <a class="state-card" data-circle="50" data-zone="South">Telangana</a>
+    <a class="state-card" data-circle="79" data-zone="North East">Tripura</a>
+    <a class="state-card" data-circle="20" data-zone="North">Uttar Pradesh</a>
+    <a class="state-card" data-circle="24" data-zone="North">Uttarakhand</a>
+    <a class="state-card" data-circle="70" data-zone="East">West Bengal</a>
+    <a class="state-card" data-circle="74" data-zone="South">Andaman & Nicobar Islands</a>
+    <a class="state-card" data-circle="16" data-zone="North">Chandigarh</a>
+    <a class="state-card" data-circle="39" data-zone="West">Dadra & Nagar Haveli</a>
+    <a class="state-card" data-circle="39" data-zone="West">Daman & Diu</a>
+    <a class="state-card" data-circle="11" data-zone="North">Delhi</a>
+    <a class="state-card" data-circle="18" data-zone="North">Jammu & Kashmir</a>
+    <a class="state-card" data-circle="18" data-zone="North">Ladakh</a>
+    <a class="state-card" data-circle="68" data-zone="South">Lakshadweep</a>
+    <a class="state-card" data-circle="60" data-zone="South">Puducherry</a>
+</div>
+</section>
+
+ <!-- Inline Ad -->
+    <div class="ad-inline">
+      <div class="ad-box-728-90"></div>
+    </div>
+
+  </main>
+
+  <!-- Right Ad -->
+  <aside class="ad-sidebar">
+    <div class="ad-box-300-600"></div>
+  </aside>
+
+</div>
+
+<footer>
+  <p>© 2026 www.pinseva.in | All Rights Reserved</p>
+  <nav class="footer-nav">
+    <a href="about.html">About Us</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="disclaimer.html">Disclaimer</a>
+  </nav>
+</footer>
+</body>
+</html>

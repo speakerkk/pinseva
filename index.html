@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pin Seva – Indian PIN Code Search</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="style.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<title>Pin Seva | Indian PIN Code Search & Post Office Directory</title>
+<meta name="description" content="Find Indian PIN codes and post office details instantly. Search by 6-digit PIN or location name across all Indian states and districts.">
+<meta name="keywords" content="PIN code search, India Post, Post Office finder, Zip code India, Postal Index Number">
+<link rel="canonical" href="https://www.pinseva.in/index.html">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.pinseva.in/">
+<meta property="og:title" content="Pin Seva – Indian PIN Code Search">
+<meta property="og:description" content="Quickly find any Indian Post Office and its PIN code.">
+<meta property="og:image" content="https://www.pinseva.in/assets/og-image.jpg">
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="Pin Seva – Indian PIN Code Search">
+<meta property="twitter:description" content="Search Indian PIN Codes and Post Offices easily.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Pin Seva",
+  "url": "https://www.pinseva.in",
+  "applicationCategory": "SearchApplication",
+  "operatingSystem": "All",
+  "abstract": "A tool to search for Indian Postal Index Numbers (PIN codes)."
+}
+</script>
+
+</head>
+
+<body>
+
+<header>
+  <h1>Pin Seva</h1>
+  <p>Search. Locate. Deliver.</p>
+    <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="stateslist.html">States List</a>
+        <a href="pobyregion.html">PO's by Region</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<div class="page-wrapper">
+
+  <!-- Left Ad -->
+  <aside class="ad-sidebar">
+    <div class="ad-box-300-600"></div>
+  </aside>
+
+  <main class="container">
+
+    <!-- Inline Ad -->
+    <div class="ad-inline">
+      <div class="ad-box-728-90"></div>
+    </div>
+
+<section class="info-section">
+  <h3>How a PIN Code Works</h3>
+  <p>A Postal Index Number (PIN) is a 6-digit numeric code used by India Post. Each digit has a specific meaning:</p>
+  <ul>
+    <li><strong>First Digit:</strong> Indicates the postal circle region.</li>
+    <li><strong>First 2 Digits:</strong> Indicates the postal circle or sub-region.</li>
+    <li><strong>First 3 Digits:</strong> Indicates the specific sorting or revenue district.</li>
+    <li><strong>Last 3 Digits:</strong> Indicates the specific delivery Post Office.</li>
+  </ul>
+</section>
+
+    <!-- Search Card -->
+
+    <div class="search-card">
+      <div class="search-tabs">
+        <button class="tab active" onclick="switchTab('pin')">Search by PIN</button>
+        <button class="tab" onclick="switchTab('location')">Search by Location</button>
+      </div>
+
+      <div id="pinTab" class="tab-content active">
+        <input type="text" id="pincode" placeholder="Enter 6 digit PIN">
+        <button onclick="searchByPin()">Search</button>
+      </div>
+
+      <div id="locationTab" class="tab-content">
+        <input type="text" id="location" placeholder="Enter Area / Village Name / Block Name">
+        <button onclick="searchByLocation()">Search</button>
+      </div>
+    </div>
+
+    <!-- Inline Ad -->
+    <div class="ad-inline">
+      <div class="ad-box-728-90"></div>
+    </div>
+
+    <!-- Results -->
+    <div id="result"></div>
+
+  </main>
+
+  <!-- Right Ad -->
+  <aside class="ad-sidebar">
+    <div class="ad-box-300-600"></div>
+  </aside>
+
+</div>
+
+<footer>
+  <p>© 2026 www.pinseva.in | All Rights Reserved</p>
+  <nav class="footer-nav">
+    <a href="about.html">About Us</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="disclaimer.html">Disclaimer</a>
+  </nav>
+</footer>
+
+<!-- MAP MODAL -->
+<div id="mapModal" class="modal">
+  <div class="modal-content">
+
+    <span class="close" onclick="closeMap()">×</span>
+
+    <!-- MAP -->
+    <div id="map"></div>
+
+    <!-- SQUARE AD BELOW MAP -->
+    <div class="map-ad">
+      <!-- Google AdSense / Square Ad -->
+      <div class="ad-box square">
+        300 × 250 Ad
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

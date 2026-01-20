@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Post Offices List | Pin Seva</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header onclick="window.location='index.html'">
+    <h1>Pin Seva</h1>
+    <p>Search. Locate. Deliver.</p>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="stateslist.html">States List</a>
+        <a href="pobyregion.html">PO's by Region</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<div class="page-wrapper">
+
+  <!-- Left Ad -->
+  <aside class="ad-sidebar">
+    <div class="ad-box-300-600"></div>
+  </aside>
+
+  <main class="container">
+
+    <!-- Inline Ad -->
+    <div class="ad-inline">
+      <div class="ad-box-728-90"></div>
+    </div>
+
+<section class="info-section">
+<main class="container">
+  <p id="state-header">Loading State Details...</p>
+
+  <div id="result">
+    <div class="loader" style="text-align:center; padding: 50px;">
+      Fetching latest post office data...
+    </div>
+  </div>
+</section>
+
+    <!-- Inline Ad -->
+    <div class="ad-inline">
+      <div class="ad-box-728-90"></div>
+    </div>
+
+</main>
+
+  <!-- Right Ad -->
+  <aside class="ad-sidebar">
+    <div class="ad-box-300-600"></div>
+  </aside>
+
+</div>
+
+<footer>
+  <p>© 2026 www.pinseva.in | All Rights Reserved</p>
+  <nav class="footer-nav">
+    <a href="about.html">About Us</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="disclaimer.html">Disclaimer</a>
+  </nav>
+</footer>
+
+<script>
+async function loadStateData() {
+    const params = new URLSearchParams(window.location.search);
+    const stateName = params.get('name');
+    
+    if (!stateName) {
+        window.location.href = 'index.html';
+        return;
+    }
+
+    // Update Page Titles for SEO
+    const cleanName = stateName.replace(/-/g, ' ');
+    document.title = `List of Post Offices in ${cleanName} | Pin Seva`;
+    document.getElementById('state-header').innerText = `Post Offices in ${cleanName}`;
+
+    const resultDiv = document.getElementById("result");
+
+    try {
+        // Use the branch name endpoint to fetch state-wide results
+        const res = await fetch(`https://api.postalpincode.in/postoffice/${cleanName}`);
+        const data = await res.json();
+
+        if (data[0].Status === "Success") {
+            let html = `<p style="margin-bottom:20px;">Found ${data[0].PostOffice.length} post offices in ${cleanName}.</p>`;
+            
+            data[0].PostOffice.forEach(po => {
+                html += `
+                <div class="result-card">
+                  <div class="card-header">
+                    <strong>${po.Name}</strong>
+                    <span class="pincode-badge" onclick="navigator.clipboard.writeText('${po.Pincode}')">${po.Pincode} 📋</span>
+                  </div>
+                  <div class="card-details">
+                    <p>District: ${po.District}</p>
+                    <p>Division: ${po.Division}</p>
+                    <p>Delivery: ${po.DeliveryStatus}</p>
+                  </div>
+                </div>`;
+            });
+            resultDiv.innerHTML = html;
+        } else {
+            resultDiv.innerHTML = "<p>No data found for this region.</p>";
+        }
+    } catch (err) {
+        resultDiv.innerHTML = "<p>Error loading data. Please try again.</p>";
+    }
+}
+
+window.onload = loadStateData;
+</script>
+
+</body>
+</html>

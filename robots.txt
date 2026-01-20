@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemaps help search engines find your content
+Sitemap: https://www.pinseva.in/sitemap.xml
