@@ -6,11 +6,6 @@
   </url>
   
   <url>
-    <loc>https://www.pinseva.in/pobyregion.html</loc>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
     <loc>https://www.pinseva.in/stateslist.html</loc>
     <priority>0.8</priority>
   </url>
@@ -38,4 +33,5 @@
     <loc>https://www.pinseva.in/disclaimer.html</loc>
     <priority>0.3</priority>
   </url>
+
 </urlset>
