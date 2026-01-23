@@ -5,9 +5,10 @@
 <title>Pin Seva – Indian PIN Code Search</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="style.css">
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.7.0/ol.css">
+<script src="https://cdn.jsdelivr.net/npm/ol@v10.7.0/dist/ol.js"></script>
 
 <title>Pin Seva | Indian PIN Code Search & Post Office Directory</title>
 <meta name="description" content="Find Indian PIN codes and post office details instantly. Search by 6-digit PIN or location name across all Indian states and districts.">
@@ -37,7 +38,6 @@
 </script>
 
 </head>
-
 <body>
 
 <header>
@@ -84,16 +84,16 @@
         <button class="tab" onclick="switchTab('location')">Search by Location</button>
       </div>
 
-      <div id="pinTab" class="tab-content active">
-        <input type="text" id="pincode" placeholder="Enter 6 digit PIN">
-        <button onclick="searchByPin()">Search</button>
-      </div>
-
-      <div id="locationTab" class="tab-content">
-        <input type="text" id="location" placeholder="Enter Area / Village Name / Block Name">
-        <button onclick="searchByLocation()">Search</button>
-      </div>
+    <div id="pinTab" class="tab-content active">
+      <input type="text" id="pincode" placeholder="Enter 6 digit PIN">
+      <button id="pinBtn" onclick="searchByPin()">Search</button>
     </div>
+
+    <div id="locationTab" class="tab-content">
+      <input type="text" id="location" placeholder="Enter Area / Village Name / Block Name">
+      <button id="locBtn" onclick="searchByLocation()">Search</button>
+    </div>
+   </div>
 
     <!-- Inline Ad -->
     <div class="ad-inline">
