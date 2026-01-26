@@ -46,9 +46,10 @@ async function performSearch(url, buttonId) {
                         <div class="card-title">${po.Name}</div>
                         <div class="card-detail"><b>PIN Code:</b> ${po.Pincode}</div>
                         <div class="card-detail"><b>Block:</b> ${po.Block}</div>
+                        <div class="card-detail"><b>District:</b> ${po.District}</div>
                         <div class="card-detail"><b>Division:</b> ${po.Division}</div>
                         <div class="card-detail"><b>Region:</b> ${po.Region}</div>
-                        <div class="card-detail"><b>District:</b> ${po.District}</div>
+                        <div class="card-detail"><b>Circle:</b> ${po.Circle}</div>
                         <div class="card-detail"><b>State:</b> ${po.State}</div>
                         <div class="card-detail"><b>Country:</b> ${po.Country}</div>
                         <div class="card-footer">Type: ${po.BranchType} | ${po.DeliveryStatus}</div>
@@ -184,3 +185,4 @@ if (headerElement) {
         if (typeof refreshAds === "function") refreshAds();
     };
 }
+
