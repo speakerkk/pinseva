@@ -1,5 +1,5 @@
 :root {
-  --primary: #0b3c5d;
+  --primary: #003366;
   --accent: #ffb400;
   --bg: #f5f7fa;
   --shadow: 0 4px 15px rgba(0,0,0,.08);
@@ -342,5 +342,6 @@ footer .footer-nav a:hover {
 }
 
 @media (max-width: 1050px) { .ad-sidebar { display: none; } 
+
 
 
